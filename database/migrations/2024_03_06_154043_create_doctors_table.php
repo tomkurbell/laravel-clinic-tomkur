@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             //sip
             $table->string('sip');
+            $table->string('id_ihs')->nullable();
+            $table->string('nik')->nullable();
             $table->timestamps();
         });
     }
