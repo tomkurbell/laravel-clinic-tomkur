@@ -79,7 +79,7 @@
                                                 <td>
                                                     {{ $patient->phone }}
                                                 </td>
-                                                <td>{{ $user->created_at }}</td>
+                                                <td>{{ $patient->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('patient.edit', $patient->id) }}'
