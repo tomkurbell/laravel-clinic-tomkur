@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="dropdown-menu">
                     <li class=''>
-                        <a class="nav-link" href="{{ route('patients.index') }}">Patients</a>
+                        <a class="nav-link" href="{{ route('patient.index') }}">Patients</a>
                     </li>
 
                 </ul>
