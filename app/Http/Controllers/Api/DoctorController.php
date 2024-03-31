@@ -12,7 +12,7 @@ class DoctorController extends Controller
     {
         $doctors = $request->name;
         $doctors = \App\Models\Doctor::when($request->input('name'), function($query, $doctors){
-            $query->where('doctor_name', 'like', '%' . $doctor_name . '%');
+            $query->where('doctor_name', 'like', '%' . $doctors . '%');
         })->orderBy("id", "desc")->get();
 
         //json
