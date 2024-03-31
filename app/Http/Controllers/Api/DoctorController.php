@@ -16,6 +16,25 @@ class DoctorController extends Controller
         })->orderBy("id", "desc")->get();
 
         //json
-        return response()->json($doctors, 200);
+        return response([
+            'data' => $doctors,
+            'message' => 'Success',
+            'status' => 'OK'
+        ], 200);
+    }
+
+    //store
+    public function store(Request $request){
+
+    }
+
+    //update
+    public function update(Request $request){
+
+    }
+
+    //delete
+    public function destroy(Request $request){
+
     }
 }
