@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -14,13 +16,22 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $user = User::where('email', $request->email)->first();
 
-        if ($token = auth()->attempt($credentials)) {
-            return $this->respondWithToken($token);
+        if(!$user || !Hash::check($request->password, $user->password)){
+            return response([
+                'message' => ['These credentials do not match our records.']
+            ], 404);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        $token = $user->createToken('auth-token')->plainTextToken;
+
+        return response([
+            'user' => $user,
+            'token' => $token
+        ], 200);
+
+        //return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     public function logout(Request $request){
