@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\PatientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,4 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
 
 Route::apiResource('/api-doctors', DoctorController::class)->middleware('auth:sanctum');
-Route::apiResource('/api-patients', DoctorController::class)->middleware('auth:sanctum');
+Route::apiResource('/api-patients', PatientController::class)->middleware('auth:sanctum');
