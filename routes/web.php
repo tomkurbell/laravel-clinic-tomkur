@@ -31,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('doctor-schedules', App\Http\Controllers\DoctorScheduleController::class);
     // patient
     Route::resource('patient', App\Http\Controllers\PatientController::class);
+    //service medicines
+    Route::resource('service-medicines', \App\Http\Controllers\ServiceMedicinesController::class);
 });
