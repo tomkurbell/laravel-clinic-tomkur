@@ -34,4 +34,4 @@ Route::apiResource('/api-patients', PatientController::class)->middleware('auth:
 Route::apiResource('/api-doctor-schedules', DoctorScheduleController::class)->middleware('auth:sanctum');
 Route::apiResource('/api-service-medicines', ServiceMedicineController::class)->middleware('auth:sanctum');
 Route::apiResource('/api-patient-schedules', PatientScheduleController::class)->middleware('auth:sanctum');
-Route::get('/satusehat-token', [SatuSehatTokenController::class, 'token']);
+Route::get('/satusehat-token', [SatuSehatTokenController::class, 'token'])->middleware('auth:sanctum');
